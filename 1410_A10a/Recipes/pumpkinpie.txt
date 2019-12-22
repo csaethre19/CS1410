@@ -1,0 +1,8 @@
+<Recipe>
+Pumpkin Pie
+<Ingredients>
+<html><ul><li>3/4 c sugar</li><li>1 1/2 tsp pumpkin pie spice</li><li>1/2 tsp salt</li><li>1 can (15oz) pumpkin<br> (not pumpkin pie mix)</li><li>1 1/4 c evaporated milk<br> or half and half</li><li>2 eggs beaten</li><li>1 Pillsbury<br> frozen deep-dish pie crust</li></html>
+<Directions>
+<html><ol><li>Heat oven to 425 degrees F.</li><li>In a large bowl, mix filling ingredients and pour into pie crust.</li><li>Bake 15 minutes.</li><li>Reduce oven temp to 350 degrees F,<br> then bake 40 to 50 minutes longer <br>(until knife inserted near center comes out clean).</li><li>Cool 2 hours.</lie><lie>Serve or refrigerate until serving time.</li><li>Store in refrigerator.</li>
+<Notes>
+<html><br>Notes...</html>

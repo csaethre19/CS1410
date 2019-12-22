@@ -1,0 +1,8 @@
+<Recipe>
+Turkey
+<Ingredients>
+<html><ul><li>1 (12 pound) whole turkey</li><li>3/4 c olive oil</li><li>2 TBsp garlic powder</li><li>2 tsp dried basil</li><li>1 tsp ground sage</li><li>1 tsp salt</li><li>1/2 tsp black pepper</li><li>2 c water</li></ul></html>
+<Directions>
+<html><ol><li>Preheat oven to 325 degrees F (165 degrees C).</li><li>Clean turkey(discard giblets and organs<br> and place in a roasting pan with a lid.</li><li>In a small bowl, combine dry seasonings. <br>Using a basting brush, <br>apply the mixture to the outside of the uncooked turkey.</li><li>Pour water into the bottom of the roasting pan and cover.</li><li>Bake for 3 to 3 1/2 hours<br> (until the internal temp of the thickest part<br> of the thigh measures 180 degrees F (82 degrees C).</li><li>Remove bird from oven,<br> and allow to stand for about 30 minutes before carving.</li>
+<Notes>
+<html><br>Notes...</html>

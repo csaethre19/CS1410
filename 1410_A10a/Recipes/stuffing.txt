@@ -1,0 +1,8 @@
+<Recipe>
+Stuffing
+<Ingredients>
+<html><ul><li>8 slices of bread</li><li>1/4 cup onion; chopped</li><li>1/4 cup celery; chopped</li><li>3/4 cup chicken broth</li><li>1/4 tsp dried thyme; crushed</li><li>1/4 tsp ground sage</li><li>1/4 tsp salt</li><li>1/4 tsp pepper</li>
+<Directions>
+<html><ol><li>Toss bread, spread with butter</li><li>Cut into cubes</li><li>In covered saucepan, cook onion and <br>celery in broth for 5 mins</li><li>Stir in seasonings</li><li>Combine with toast cubes; toss lightly</li><li>Add 1/4 cup more broth for moist stuffing,<br> if desired.</li><li>Stuff a 5-pound roasting turkey or bake, covered<br>in greased 1 quart casserole dish at 375 degrees for 30 mins</li>
+<Notes>
+<html><br>Notes...</html>

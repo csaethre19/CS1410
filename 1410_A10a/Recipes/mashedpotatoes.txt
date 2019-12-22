@@ -1,0 +1,8 @@
+<Recipe>
+Mashed Potatoes
+<Ingredients>
+<html><ul><li>5 pounds Russet Potatoes</li><li>1/2 cup butter</li><li>4 oz. cream cheese</li><li>1/2 cup half and half</li><li>1/2 cup milk</li><li>1/2 tsp seasoning salt</li><li>1/2 tsp pepper</li></html>
+<Directions>
+<html><ol><li>Add peeled and diced potatoes to a pot and cover with water.</li><li>Bring to boil, reduce heat, and allow to simmer <br>for 20-25 mins until potatoes are tender</li><li>Drain potatoes and then return them to the pot</li><li>Return pot with potatoes to stove on low heat</li><li>Add 5 TB of butter and cream cheese to the pot and start mashing</li><li>Once creamy slowly add half and half and milk gradually</li><li>Keep mashing and add seasoning salt and pepper</li><li>Stir and place into casserole dish</li><li>Add remaining 3 TB of butter to the top</li><li>Bake at 350 degrees for 1-15 minutes or until <br>butter is melted and potatoes are warm</li>
+<Notes>
+<html><br>Notes...</html>
