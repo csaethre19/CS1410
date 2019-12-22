@@ -1,2 +1,2 @@
 # CS1410
-CSIS 1410 ASsignments
+CSIS 1410 Assignments
