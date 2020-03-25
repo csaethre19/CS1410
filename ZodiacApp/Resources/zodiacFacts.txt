@@ -1,0 +1,24 @@
+ARIES
+<html><center>Ruling planet: Mars<br><br>Mode: Cardinal<br><br>Element: Fire</html>
+TAURUS
+<html><center>Ruling planet: Venus<br><br>Mode: Fixed<br><br>Element: Earth</html>
+GEMINI
+<html><center>Ruling planet: Mercury<br><br>Mode: Mutable<br><br>Element: Air</html>
+LEO
+<html><center>Ruling planet: Sun<br><br>Mode: Fixed<br><br>Element: Fire</html>
+CANCER
+<html><center>Ruling planet: Moon<br><br>Mode: Cardinal<br><br>Element: Water</html>
+VIRGO
+<html><center>Ruling planet: Mercury<br><br>Mode: Mutable<br><br>Element: Earth</html>
+LIBRA 
+<html><center>Ruling planet: Venus<br><br>Mode: Cardinal<br><br>Element: Air</html>
+SCORPIO
+<html><center>Ruling planet: Pluto<br><br>Mode: Fixed<br><br>Element: Water</html>
+SAGITTARIUS
+<html><center>Ruling planet: Jupiter<br><br>Mode: Mutable<br><br>Element: Fire</html>
+CAPRICORN
+<html><center>Ruling planet: Saturn<br><br>Mode: Cardinal<br><br>Element: Earth</html>
+AQUARIUS
+<html><center>Ruling planet: Uranus<br><br>Mode: Fixed<br><br>Element: Air</html>
+PISCES
+<html><center>Ruling planet: Neptune<br><br>Mode: Mutable<br><br>Element: Water</html>
