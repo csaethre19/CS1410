@@ -16,7 +16,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 
 /**
- * Displays user interface that calculates the nth number of the Fibonacci sequence. 
+ * Displays user interface that calculates the nth number of the Fibonacci sequence that a user enters. 
  * 
  * @author Charlotte Saethre
  *
