@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 /**
  * Displays user interface that allows user to input two numbers that then calculates the GCD.
- * @author charl
+ * @author Charlotte Saethre
  *
  */
 public class GCDCalculatorView extends JFrame {
@@ -26,6 +27,7 @@ public class GCDCalculatorView extends JFrame {
 	private JTextField secondNumberInput;
 	private JTextField firstNumberInput;
 	private JLabel lblGcdResult;
+	private JButton btnCalculate;
 
 	/**
 	 * Launch the application.
@@ -34,7 +36,10 @@ public class GCDCalculatorView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					GCDCalculatorModel model = new GCDCalculatorModel();
 					GCDCalculatorView frame = new GCDCalculatorView();
+					@SuppressWarnings("unused")
+					GCDCalculatorController controller = new GCDCalculatorController(frame, model);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -70,7 +75,7 @@ public class GCDCalculatorView extends JFrame {
 		secondNumberInput = createSecondNumberInput();
 		contentPane.add(secondNumberInput);
 		
-		JButton btnCalculate = createBtnCalculate();
+		btnCalculate = createBtnCalculate();
 		contentPane.add(btnCalculate);
 		
 		lblGcdResult = createLblGcdResult();
@@ -122,6 +127,27 @@ public class GCDCalculatorView extends JFrame {
 	private JButton createBtnCalculate() {
 		JButton btnCalculate = new JButton("Calculate");
 		return btnCalculate;
+	}
+	
+
+	public JTextField getSecondNumberInput() {
+		return secondNumberInput;
+	}
+
+	public JTextField getFirstNumberInput() {
+		return firstNumberInput;
+	}
+	
+	public JButton getBtnCalculate() {
+		return btnCalculate;
+	}
+
+	public void setLblGcdResult(String gcdResult) {
+		lblGcdResult.setText("GCD is: " + gcdResult);
+	}
+	
+	public void addCalculateGcdListener(ActionListener listener) {
+		btnCalculate.addActionListener(listener);
 	}
 
 }
