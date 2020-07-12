@@ -18,7 +18,6 @@ public class DisplayRecipeView extends JPanel {
 	 * Create the panel.
 	 */
 	public DisplayRecipeView() {
-		
 		lblRecipeName = createLblRecipeName();
 		add(lblRecipeName);
 		

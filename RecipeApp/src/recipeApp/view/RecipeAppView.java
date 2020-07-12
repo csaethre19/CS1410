@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.border.BevelBorder;
@@ -22,6 +22,7 @@ import javax.swing.border.EtchedBorder;
 import recipeApp.controller.RecipeAppController;
 import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
+
 /**
  * 
  * @author charl
@@ -38,17 +39,19 @@ public class RecipeAppView extends JFrame {
 	private JButton btnDeleteRecipe;
 	private JButton btnAddRecipe;
 	private JPanel welcomePanel;
-	private static List<Recipe> recipes = new ArrayList<>();
+	private static List<Recipe> recipes;
+	private static RecipeAppModel model = new RecipeAppModel();
+	private JButton btnHome;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 				try {
 					RecipeAppView frame = new RecipeAppView();
-					RecipeAppModel model = new RecipeAppModel();
 					@SuppressWarnings("unused")
 					RecipeAppController controller = new RecipeAppController(frame, model);
 					recipes = model.getRecipesList();
@@ -65,11 +68,13 @@ public class RecipeAppView extends JFrame {
 	 */
 	public RecipeAppView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 650, 700);
+		setBounds(100, 100, 800, 750);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+
+		recipes = model.getRecipesList();
 
 		JPanel recipePanel = createRecipePanel();
 		contentPane.add(recipePanel, BorderLayout.CENTER);
@@ -100,7 +105,16 @@ public class RecipeAppView extends JFrame {
 		btnAddRecipe = createBtnAddRecipe();
 		menuPanel.add(btnAddRecipe);
 
+		btnHome = createBtnHome();
+		menuPanel.add(btnHome);
+
 		return menuPanel;
+	}
+
+	private JButton createBtnHome() {
+		JButton btnHome = new JButton("Home");
+		btnHome.setFont(new Font("Calibri", Font.PLAIN, 16));
+		return btnHome;
 	}
 
 	private JButton createBtnAddRecipe() {
@@ -126,7 +140,7 @@ public class RecipeAppView extends JFrame {
 		btnViewRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
 		return btnViewRecipe;
 	}
-	
+
 	/**
 	 * 
 	 * @param listener
@@ -134,15 +148,25 @@ public class RecipeAppView extends JFrame {
 	public void addBtnViewListener(ActionListener listener) {
 		btnViewRecipe.addActionListener(listener);
 	}
+	
+	/**
+	 * 
+	 * @param listener
+	 */
+	public void addBtnHomeListener(ActionListener listener) {
+		btnHome.addActionListener(listener);
+	}
 
 	private JComboBox<String> createRecipeDropdown() {
 		JComboBox<String> recipeDropdown = new JComboBox<String>();
 		recipeDropdown.setBorder(new EmptyBorder(4, 8, 4, 8));
 		recipeDropdown.setFont(new Font("Calibri", Font.PLAIN, 16));
-		recipeDropdown.addItem("placeholder");
+		for (int i = 0; i < recipes.size(); i++) {
+			recipeDropdown.addItem(recipes.get(i).getRecipeName());
+		}
 		return recipeDropdown;
 	}
-	
+
 	public int getRecipeSelected() {
 		return recipeDropdown.getSelectedIndex();
 	}
@@ -161,11 +185,14 @@ public class RecipeAppView extends JFrame {
 
 		welcomePanel = createWelcomePanel();
 		recipePanel.add(welcomePanel, "name_424632408537600");
-
 		displayView = new DisplayRecipeView();
 		recipePanel.add(displayView, "name_431476528960000");
 
 		return recipePanel;
+	}
+
+	public DisplayRecipeView getRecipeDisplay() {
+		return this.displayView;
 	}
 
 	private JPanel createWelcomePanel() {
@@ -177,19 +204,21 @@ public class RecipeAppView extends JFrame {
 
 		return welcomePanel;
 	}
-	
+
 	public JPanel getWelcomePanel() {
 		return this.welcomePanel;
 	}
-	
+
 	public JPanel getDisplayView() {
 		return this.displayView;
 	}
 
 	private JLabel createLblDisplayImage() {
 		JLabel lblDisplayImage = new JLabel("");
-		lblDisplayImage
-				.setIcon(new ImageIcon(RecipeAppView.class.getResource("/recipeApp/view/img/desktop-recipe-book.png")));
+		lblDisplayImage.setSize(800, 600);
+		ImageIcon img = new ImageIcon(RecipeAppView.class.getResource("/recipeApp/view/img/desktop-recipe-book.png"));
+		lblDisplayImage.setIcon(new ImageIcon(img.getImage().getScaledInstance(lblDisplayImage.getWidth(),
+				lblDisplayImage.getHeight(), Image.SCALE_SMOOTH)));
 		return lblDisplayImage;
 	}
 
