@@ -29,21 +29,14 @@ public class RecipeAppModel {
 		return recipes.get(index);
 	}
 	/**
+	 * Creates recipe object and adds it to the list of recipes.
 	 * 
-	 * @param recipeName
-	 * @param recipeIngredients
-	 * @param recipeDirections
+	 * @param recipeName name 
+	 * @param recipeIngredients ingredients
+	 * @param recipeDirections directions
 	 */
 	public void createRecipe(String recipeName, String recipeIngredients, String recipeDirections) {
 		Recipe recipe = new Recipe(recipeName, recipeIngredients, recipeDirections);
-		addRecipe(recipe);
-	}
-	
-	/**
-	 * 
-	 * @param recipe
-	 */
-	public void addRecipe(Recipe recipe) {
 		recipes.add(recipe);
 	}
 	
