@@ -14,7 +14,7 @@ public class RecipeAppModel {
 	public RecipeAppModel() {
 		testRecipe = new Recipe("Homemade Bread", "Flour, Water, Yeast, Oil", "Combine dry ingredients. "
 				+ "Add warm water and oil. Mix to combine. Kneed for 10 minutes. Rest for 15. "
-				+ "Bake in oven at 400 degrees. Let cool");
+				+ "Bake in oven at 400 degrees. Let cool. I am now adding more text to see if this works on a JLabel too :)");
 		recipes.add(testRecipe);
 //		for (Recipe r : recipes) {
 //			System.out.println(r.getRecipeName());

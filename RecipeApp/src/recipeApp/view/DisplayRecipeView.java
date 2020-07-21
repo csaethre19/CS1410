@@ -1,6 +1,7 @@
 package recipeApp.view;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -40,20 +41,22 @@ public class DisplayRecipeView extends JPanel {
 		add(lblDirections_Tag);
 
 		lblDirections = createDirectionsSection();
-		add(lblDirections);
+		JScrollPane dirScroll = new JScrollPane(lblDirections);
+		add(dirScroll);
 
 		JLabel lblIngredients_Tag = createLblIngredientsTag();
 		add(lblIngredients_Tag);
 
 		lblIngredients = createIngredientsSection();
-		add(lblIngredients);
+		JScrollPane ingScroll = new JScrollPane(lblIngredients);
+		add(ingScroll);
 
 	}
 
 	private JLabel createLblDirectionsTag() {
 		JLabel lblDirections_Tag = new JLabel("Directions:");
 		lblDirections_Tag.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDirections_Tag.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblDirections_Tag.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		lblDirections_Tag.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		return lblDirections_Tag;
 	}
@@ -61,7 +64,7 @@ public class DisplayRecipeView extends JPanel {
 	private JLabel createLblIngredientsTag() {
 		JLabel lblIngredients_Tag = new JLabel("Ingredients:");
 		lblIngredients_Tag.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIngredients_Tag.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblIngredients_Tag.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		lblIngredients_Tag.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		return lblIngredients_Tag;
 	}
