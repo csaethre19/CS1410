@@ -42,6 +42,7 @@ public class RecipeAppView extends JFrame {
 	private static List<Recipe> recipes;
 	private static RecipeAppModel model = new RecipeAppModel();
 	private JButton btnHome;
+	private AddRecipeView addView;
 
 	/**
 	 * Launch the application.
@@ -148,7 +149,7 @@ public class RecipeAppView extends JFrame {
 	public void addBtnViewListener(ActionListener listener) {
 		btnViewRecipe.addActionListener(listener);
 	}
-	
+
 	/**
 	 * 
 	 * @param listener
@@ -188,6 +189,9 @@ public class RecipeAppView extends JFrame {
 		displayView = new DisplayRecipeView();
 		recipePanel.add(displayView, "name_431476528960000");
 
+		addView = new AddRecipeView();
+		recipePanel.add(addView, "name_269362323597800");
+
 		return recipePanel;
 	}
 
@@ -212,6 +216,10 @@ public class RecipeAppView extends JFrame {
 	public JPanel getDisplayView() {
 		return this.displayView;
 	}
+	
+	public JPanel getAddRecipeView() {
+		return this.addView;
+	}
 
 	private JLabel createLblDisplayImage() {
 		JLabel lblDisplayImage = new JLabel("");
@@ -221,6 +229,10 @@ public class RecipeAppView extends JFrame {
 		lblDisplayImage.setIcon(new ImageIcon(img.getImage().getScaledInstance(lblDisplayImage.getWidth(),
 				lblDisplayImage.getHeight(), Image.SCALE_SMOOTH)));
 		return lblDisplayImage;
+	}
+
+	public void addBtnAddRecipeListener(ActionListener listener) {
+		btnAddRecipe.addActionListener(listener);
 	}
 
 }

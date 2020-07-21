@@ -20,6 +20,7 @@ public class RecipeAppController {
 		this.model = model;
 		view.addBtnViewListener(new BtnViewListener());
 		view.addBtnHomeListener(new BtnHomeListener());
+		view.addBtnAddRecipeListener(new BtnAddListener());
 	}
 
 	class BtnViewListener implements ActionListener {
@@ -63,7 +64,13 @@ public class RecipeAppController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			if (view.getWelcomePanel().isVisible()) {
+				view.getWelcomePanel().setVisible(false);
+			}
+			else if (view.getDisplayView().isVisible()) {
+				view.getDisplayView().setVisible(false);
+			}
+			view.getAddRecipeView().setVisible(true);
 			
 		}
 		
