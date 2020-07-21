@@ -2,6 +2,16 @@ package recipeApp.view;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.EmptyBorder;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
 /**
  * 
  * @author charl
@@ -18,19 +28,46 @@ public class DisplayRecipeView extends JPanel {
 	 * Create the panel.
 	 */
 	public DisplayRecipeView() {
+		setBackground(new Color(176, 224, 230));
+		setLayout(new GridLayout(0, 2, 0, 0));
 		lblRecipeName = createLblRecipeName();
 		add(lblRecipeName);
-		
-		lblDirections = createLblDirections();
+
+		JLabel emptyBlock = new JLabel("What you need and what to do!");
+		add(emptyBlock);
+
+		JLabel lblDirections_Tag = createLblDirectionsTag();
+		add(lblDirections_Tag);
+
+		lblDirections = createDirectionsSection();
 		add(lblDirections);
-		
-		lblIngredients = createLblIngredients();
+
+		JLabel lblIngredients_Tag = createLblIngredientsTag();
+		add(lblIngredients_Tag);
+
+		lblIngredients = createIngredientsSection();
 		add(lblIngredients);
 
 	}
 
+	private JLabel createLblDirectionsTag() {
+		JLabel lblDirections_Tag = new JLabel("Directions:");
+		lblDirections_Tag.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDirections_Tag.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblDirections_Tag.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		return lblDirections_Tag;
+	}
+
+	private JLabel createLblIngredientsTag() {
+		JLabel lblIngredients_Tag = new JLabel("Ingredients:");
+		lblIngredients_Tag.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIngredients_Tag.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblIngredients_Tag.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		return lblIngredients_Tag;
+	}
+
 	public void setLblRecipeName(String name) {
-		this.lblRecipeName.setText(name);
+		this.lblRecipeName.setText("Recipe: " + name);
 	}
 
 	public void setLblDirections(String directions) {
@@ -41,18 +78,25 @@ public class DisplayRecipeView extends JPanel {
 		this.lblIngredients.setText(ingredients);
 	}
 
-	private JLabel createLblIngredients() {
+	private JLabel createIngredientsSection() {
 		JLabel lblIngredients = new JLabel("Ingredients: ");
+		lblIngredients.setBorder(new EmptyBorder(0, 20, 0, 20));
+		lblIngredients.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		return lblIngredients;
 	}
 
-	private JLabel createLblDirections() {
+	private JLabel createDirectionsSection() {
 		JLabel lblDirections = new JLabel("Directions: ");
+		lblDirections.setBorder(new EmptyBorder(0, 20, 0, 20));
+		lblDirections.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		return lblDirections;
 	}
 
 	private JLabel createLblRecipeName() {
 		JLabel lblRecipeName = new JLabel("recipe name");
+		lblRecipeName.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		lblRecipeName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblRecipeName.setHorizontalAlignment(SwingConstants.CENTER);
 		return lblRecipeName;
 	}
 

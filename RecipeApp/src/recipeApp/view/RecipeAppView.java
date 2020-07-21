@@ -68,7 +68,7 @@ public class RecipeAppView extends JFrame {
 	 */
 	public RecipeAppView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 750);
+		setBounds(100, 100, 775, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -215,7 +215,8 @@ public class RecipeAppView extends JFrame {
 
 	private JLabel createLblDisplayImage() {
 		JLabel lblDisplayImage = new JLabel("");
-		lblDisplayImage.setSize(800, 600);
+		lblDisplayImage.setBorder(new EmptyBorder(0, 50, 0, 0));
+		lblDisplayImage.setSize(640, 426);
 		ImageIcon img = new ImageIcon(RecipeAppView.class.getResource("/recipeApp/view/img/desktop-recipe-book.png"));
 		lblDisplayImage.setIcon(new ImageIcon(img.getImage().getScaledInstance(lblDisplayImage.getWidth(),
 				lblDisplayImage.getHeight(), Image.SCALE_SMOOTH)));

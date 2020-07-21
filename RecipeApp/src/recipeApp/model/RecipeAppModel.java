@@ -12,13 +12,16 @@ public class RecipeAppModel {
 	private Recipe testRecipe;
 	
 	public RecipeAppModel() {
-		testRecipe = new Recipe("Homemade Bread", "Flour, Water, Yeast, Oil", "Combine dry ingredients, "
+		testRecipe = new Recipe("Homemade Bread", "Flour, Water, Yeast, Oil", "Combine dry ingredients. "
 				+ "Add warm water and oil. Mix to combine. Kneed for 10 minutes. Rest for 15. "
 				+ "Bake in oven at 400 degrees. Let cool");
 		recipes.add(testRecipe);
-		for (Recipe r : recipes) {
-			System.out.println(r.getRecipeName());
-		}
+//		for (Recipe r : recipes) {
+//			System.out.println(r.getRecipeName());
+//		}
+		String dirNewLine = addNewLine(testRecipe.getRecipeDirections());
+		//System.out.println(ingNewLine);
+		testRecipe.setRecipeDirections(dirNewLine);
 	}
 	
 	public List<Recipe> getRecipesList() {
@@ -38,6 +41,21 @@ public class RecipeAppModel {
 	public void createRecipe(String recipeName, String recipeIngredients, String recipeDirections) {
 		Recipe recipe = new Recipe(recipeName, recipeIngredients, recipeDirections);
 		recipes.add(recipe);
+	}
+	
+	private String addNewLine(String text) {
+		String[] temp = text.split(" ");
+		String result = "<html>";
+		for (int i = 0; i < temp.length; i++) {
+			if (i%5 == 0 && i != 0) {
+				result += "<br>" + temp[i] + " ";
+			}
+			else {
+				result += temp[i] + " ";
+			}
+		}
+		result += "</html>";
+		return result;
 	}
 	
 }
