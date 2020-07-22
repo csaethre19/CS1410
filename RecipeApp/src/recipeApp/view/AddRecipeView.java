@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -11,6 +13,10 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.border.EtchedBorder;
+
+import recipeApp.controller.AddRecipeController;
+import recipeApp.model.RecipeAppModel;
+
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 
@@ -20,6 +26,7 @@ public class AddRecipeView extends JPanel {
 	private JTextArea ingredientsText;
 	private JTextField recipeName;
 	private JButton btnSubmit;
+	private JButton btnClear;
 
 	/**
 	 * Create the panel.
@@ -64,6 +71,27 @@ public class AddRecipeView extends JPanel {
 		createSubmitBtn();
 		submitPanel.add(btnSubmit);
 
+		btnClear = createClearBtn();
+		submitPanel.add(btnClear);
+
+		RecipeAppModel model = new RecipeAppModel();
+		@SuppressWarnings("unused")
+		AddRecipeController controller = new AddRecipeController(this, model);
+
+	}
+
+	private JButton createClearBtn() {
+		JButton btnClear = new JButton("Clear");
+		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		return btnClear;
+	}
+	
+	/**
+	 * 
+	 * @param listener
+	 */
+	public void addClearBtnListener(ActionListener listener) {
+		btnClear.addActionListener(listener);
 	}
 
 	private JPanel createNamePanel() {
@@ -97,11 +125,23 @@ public class AddRecipeView extends JPanel {
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	}
 
+	/**
+	 * 
+	 * @param listener
+	 */
+	public void addSubmitBtnListener(ActionListener listener) {
+		btnSubmit.addActionListener(listener);
+	}
+
 	private void createDirectionsTextArea() {
 		directionsText = new JTextArea();
 		directionsText.setRows(3);
 		directionsText.setColumns(20);
 		directionsText.setLineWrap(true);
+	}
+	
+	public void setDirections(String text) {
+		directionsText.setText(text);
 	}
 
 	private JLabel createLblDirections() {
@@ -117,6 +157,10 @@ public class AddRecipeView extends JPanel {
 		ingredientsText.setRows(3);
 		ingredientsText.setLineWrap(true);
 	}
+	
+	public void setIngredients(String text) {
+		ingredientsText.setText(text);
+	}
 
 	private JLabel createLblIngredients() {
 		JLabel lblIngredients = new JLabel("Ingredients:");
@@ -129,17 +173,25 @@ public class AddRecipeView extends JPanel {
 	private JLabel createLblRecipeName() {
 		JLabel lblRecipeName = new JLabel("Recipe Name:");
 		lblRecipeName.setHorizontalAlignment(SwingConstants.LEFT);
-		lblRecipeName.setBorder(new EmptyBorder(20, 0, 0, 0));
+		lblRecipeName.setBorder(new EmptyBorder(10, 0, 10, 0));
 		lblRecipeName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		return lblRecipeName;
 	}
+	
+	public void setLblRecipeName(String text) {
+		recipeName.setText(text);
+	}
+
+	public String getRecipeName() {
+		return this.recipeName.getText();
+	}
 
 	public String getRecipeDirections() {
-		return this.directionsText.getSelectedText();
+		return this.directionsText.getText();
 	}
 
 	public String getRecipeIngredients() {
-		return this.ingredientsText.getSelectedText();
+		return this.ingredientsText.getText();
 	}
 
 }
