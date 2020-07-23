@@ -27,6 +27,7 @@ public class AddRecipeView extends JPanel {
 	private JTextField recipeName;
 	private JButton btnSubmit;
 	private JButton btnClear;
+	@SuppressWarnings("unused")
 	private RecipeAppView mainView;
 
 	/**

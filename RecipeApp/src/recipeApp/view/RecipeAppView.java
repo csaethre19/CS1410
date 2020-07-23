@@ -42,6 +42,7 @@ public class RecipeAppView extends JFrame {
 	private RecipeAppModel model = new RecipeAppModel();
 	private JButton btnHome;
 	private AddRecipeView addView;
+	private EditRecipeView editView;
 
 	/**
 	 * Launch the application.
@@ -76,7 +77,7 @@ public class RecipeAppView extends JFrame {
 
 		JPanel menuPanel = createMenuPanel();
 		contentPane.add(menuPanel, BorderLayout.SOUTH);
-		
+
 		@SuppressWarnings("unused")
 		RecipeAppController controller = new RecipeAppController(this, model);
 
@@ -166,11 +167,11 @@ public class RecipeAppView extends JFrame {
 		}
 		return recipeDropdown;
 	}
-	
+
 	public JComboBox<String> getRecipeDropdown() {
 		return recipeDropdown;
 	}
-	
+
 	public void setRecipeDropdown(List<Recipe> recipes) {
 		for (int i = 0; i < recipes.size(); i++) {
 			recipeDropdown.addItem(recipes.get(i).getRecipeName());
@@ -201,6 +202,9 @@ public class RecipeAppView extends JFrame {
 		addView = new AddRecipeView(this);
 		recipePanel.add(addView, "name_269362323597800");
 
+		editView = new EditRecipeView();
+		recipePanel.add(editView, "name_480702289636600");
+
 		return recipePanel;
 	}
 
@@ -225,7 +229,7 @@ public class RecipeAppView extends JFrame {
 	public JPanel getDisplayView() {
 		return this.displayView;
 	}
-	
+
 	public JPanel getAddRecipeView() {
 		return this.addView;
 	}
