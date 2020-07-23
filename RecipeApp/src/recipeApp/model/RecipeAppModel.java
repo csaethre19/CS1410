@@ -8,20 +8,10 @@ import java.util.List;
  *
  */
 public class RecipeAppModel {
-	private List<Recipe> recipes = new ArrayList<>();
-	private Recipe testRecipe;
+	private static List<Recipe> recipes = new ArrayList<>();
 	
 	public RecipeAppModel() {
-		testRecipe = new Recipe("Homemade Bread", "Flour, Water, Yeast, Oil", "Combine dry ingredients. "
-				+ "Add warm water and oil. Mix to combine. Kneed for 10 minutes. Rest for 15. "
-				+ "Bake in oven at 400 degrees. Let cool. I am now adding more text to see if this works on a JLabel too :)");
-		recipes.add(testRecipe);
-//		for (Recipe r : recipes) {
-//			System.out.println(r.getRecipeName());
-//		}
-		String dirNewLine = addNewLine(testRecipe.getRecipeDirections());
-		//System.out.println(ingNewLine);
-		testRecipe.setRecipeDirections(dirNewLine);
+
 	}
 	
 	public List<Recipe> getRecipesList() {
@@ -39,7 +29,7 @@ public class RecipeAppModel {
 	 * @param recipeDirections directions
 	 */
 	public void createRecipe(String recipeName, String recipeIngredients, String recipeDirections) {
-		Recipe recipe = new Recipe(recipeName, recipeIngredients, recipeDirections);
+		Recipe recipe = new Recipe(recipeName, addNewLine(recipeIngredients), addNewLine(recipeDirections));
 		recipes.add(recipe);
 	}
 	

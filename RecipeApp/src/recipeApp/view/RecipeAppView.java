@@ -39,8 +39,7 @@ public class RecipeAppView extends JFrame {
 	private JButton btnDeleteRecipe;
 	private JButton btnAddRecipe;
 	private JPanel welcomePanel;
-	private static List<Recipe> recipes;
-	private static RecipeAppModel model = new RecipeAppModel();
+	private RecipeAppModel model = new RecipeAppModel();
 	private JButton btnHome;
 	private AddRecipeView addView;
 
@@ -53,9 +52,6 @@ public class RecipeAppView extends JFrame {
 			public void run() {
 				try {
 					RecipeAppView frame = new RecipeAppView();
-					@SuppressWarnings("unused")
-					RecipeAppController controller = new RecipeAppController(frame, model);
-					recipes = model.getRecipesList();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -75,13 +71,15 @@ public class RecipeAppView extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		recipes = model.getRecipesList();
-
 		JPanel recipePanel = createRecipePanel();
 		contentPane.add(recipePanel, BorderLayout.CENTER);
 
 		JPanel menuPanel = createMenuPanel();
 		contentPane.add(menuPanel, BorderLayout.SOUTH);
+		
+		@SuppressWarnings("unused")
+		RecipeAppController controller = new RecipeAppController(this, model);
+
 	}
 
 	private JPanel createMenuPanel() {
@@ -162,10 +160,21 @@ public class RecipeAppView extends JFrame {
 		JComboBox<String> recipeDropdown = new JComboBox<String>();
 		recipeDropdown.setBorder(new EmptyBorder(4, 8, 4, 8));
 		recipeDropdown.setFont(new Font("Calibri", Font.PLAIN, 16));
+		List<Recipe> recipes = model.getRecipesList();
+		if (!recipes.equals(null)) {
+			setRecipeDropdown(recipes);
+		}
+		return recipeDropdown;
+	}
+	
+	public JComboBox<String> getRecipeDropdown() {
+		return recipeDropdown;
+	}
+	
+	public void setRecipeDropdown(List<Recipe> recipes) {
 		for (int i = 0; i < recipes.size(); i++) {
 			recipeDropdown.addItem(recipes.get(i).getRecipeName());
 		}
-		return recipeDropdown;
 	}
 
 	public int getRecipeSelected() {
@@ -189,7 +198,7 @@ public class RecipeAppView extends JFrame {
 		displayView = new DisplayRecipeView();
 		recipePanel.add(displayView, "name_431476528960000");
 
-		addView = new AddRecipeView();
+		addView = new AddRecipeView(this);
 		recipePanel.add(addView, "name_269362323597800");
 
 		return recipePanel;

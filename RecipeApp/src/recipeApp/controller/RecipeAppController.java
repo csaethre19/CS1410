@@ -2,10 +2,12 @@ package recipeApp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
 import recipeApp.view.RecipeAppView;
+
 /**
  * 
  * @author charl
@@ -14,7 +16,7 @@ import recipeApp.view.RecipeAppView;
 public class RecipeAppController {
 	RecipeAppView view;
 	RecipeAppModel model;
-	
+
 	public RecipeAppController(RecipeAppView view, RecipeAppModel model) {
 		this.view = view;
 		this.model = model;
@@ -29,61 +31,67 @@ public class RecipeAppController {
 		public void actionPerformed(ActionEvent e) {
 			view.getWelcomePanel().setVisible(false);
 			view.getDisplayView().setVisible(true);
-			Recipe rec = model.getRecipe(view.getRecipeSelected());
-			String name = rec.getRecipeName();
-			String ing = rec.getRecipeIngredients();
-			String dir = rec.getRecipeDirections();
-			view.getRecipeDisplay().setLblRecipeName(name);
-			view.getRecipeDisplay().setLblIngredients(ing);
-			view.getRecipeDisplay().setLblDirections(dir);
+			if (!model.getRecipesList().isEmpty()) {
+				Recipe rec = model.getRecipe(view.getRecipeSelected());
+				String name = rec.getRecipeName();
+				String ing = rec.getRecipeIngredients();
+				String dir = rec.getRecipeDirections();
+				view.getRecipeDisplay().setLblRecipeName(name);
+				view.getRecipeDisplay().setLblIngredients(ing);
+				view.getRecipeDisplay().setLblDirections(dir);
+			}
+			else {
+				view.getRecipeDisplay().setLblRecipeName("No recipes :(");
+				view.getRecipeDisplay().setLblIngredients("");
+				view.getRecipeDisplay().setLblDirections("");
+			}
+
 		}
-		
+
 	}
-	
+
 	class BtnEditListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 	}
-	
+
 	class BtnDeleteListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 	}
-	
+
 	class BtnAddListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (view.getWelcomePanel().isVisible()) {
 				view.getWelcomePanel().setVisible(false);
-			}
-			else if (view.getDisplayView().isVisible()) {
+			} else if (view.getDisplayView().isVisible()) {
 				view.getDisplayView().setVisible(false);
 			}
 			view.getAddRecipeView().setVisible(true);
-			
+
 		}
-		
+
 	}
-	
+
 	class BtnHomeListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			view.getWelcomePanel().setVisible(true);
 			view.getDisplayView().setVisible(false);
-			
 		}
-		
+
 	}
 }
