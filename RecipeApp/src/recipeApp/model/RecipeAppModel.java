@@ -29,11 +29,11 @@ public class RecipeAppModel {
 	 * @param recipeDirections directions
 	 */
 	public void createRecipe(String recipeName, String recipeIngredients, String recipeDirections) {
-		Recipe recipe = new Recipe(recipeName, addNewLine(recipeIngredients), addNewLine(recipeDirections));
+		Recipe recipe = new Recipe(recipeName, recipeIngredients, recipeDirections);
 		recipes.add(recipe);
 	}
 	
-	private String addNewLine(String text) {
+	public String addNewLine(String text) {
 		String[] temp = text.split(" ");
 		String result = "<html>";
 		for (int i = 0; i < temp.length; i++) {

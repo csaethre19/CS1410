@@ -28,13 +28,21 @@ public class RecipeAppController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			view.getWelcomePanel().setVisible(false);
+			if (view.getWelcomePanel().isVisible()) {
+				view.getWelcomePanel().setVisible(false);
+			} else if (view.getAddRecipeView().isVisible()) {
+				view.getAddRecipeView().setVisible(false);
+			} else {
+				view.getEditView().setVisible(false);
+			}
 			view.getDisplayView().setVisible(true);
 			if (!model.getRecipesList().isEmpty()) {
 				Recipe rec = model.getRecipe(view.getRecipeSelected());
 				String name = rec.getRecipeName();
 				String ing = rec.getRecipeIngredients();
+				ing = model.addNewLine(ing);
 				String dir = rec.getRecipeDirections();
+				dir = model.addNewLine(dir);
 				view.getRecipeDisplay().setLblRecipeName(name);
 				view.getRecipeDisplay().setLblIngredients(ing);
 				view.getRecipeDisplay().setLblDirections(dir);
@@ -60,7 +68,17 @@ public class RecipeAppController {
 				view.getAddRecipeView().setVisible(false);
 			}
 			view.getEditView().setVisible(true);
-
+			if (!model.getRecipesList().isEmpty()) {
+				Recipe rec = model.getRecipe(view.getRecipeSelected());
+				String name = rec.getRecipeName();
+				String ing = rec.getRecipeIngredients();
+				String dir = rec.getRecipeDirections();
+				view.getEditView().setRecipeName(name);
+				view.getEditView().setIngredientsText(ing);
+				view.getEditView().setDirectionsText(dir);
+			} else {
+				view.getEditView().setRecipeName("no recipes :(");
+			}
 		}
 
 	}

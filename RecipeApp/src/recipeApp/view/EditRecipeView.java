@@ -1,14 +1,21 @@
 package recipeApp.view;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
+
+import recipeApp.controller.EditRecipeController;
+import recipeApp.model.RecipeAppModel;
+
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
@@ -19,11 +26,15 @@ public class EditRecipeView extends JPanel {
 	private JButton btnClear;
 	private JTextArea directionsText;
 	private JTextArea ingredientsText;
+	private RecipeAppView mainView;
 
 	/**
 	 * Create the panel.
 	 */
-	public EditRecipeView() {
+	public EditRecipeView(RecipeAppView mainView) {
+		
+		this.mainView = mainView;
+		
 		setLayout(new GridLayout(4, 1, 0, 0));
 
 		JPanel namePanel = createNamePanel();
@@ -37,7 +48,9 @@ public class EditRecipeView extends JPanel {
 
 		JPanel updatePanel = createUpdatePanel();
 		add(updatePanel);
-
+		
+		RecipeAppModel model = new RecipeAppModel();
+		EditRecipeController controller = new EditRecipeController(this, model, mainView);
 	}
 
 	private JPanel createUpdatePanel() {
@@ -52,16 +65,48 @@ public class EditRecipeView extends JPanel {
 		return updatePanel;
 	}
 
+	public void setRecipeName(String name) {
+		this.recipeName.setText(name);
+	}
+	
+	public void setDirectionsText(String text) {
+		this.directionsText.setText(text);
+	}
+	
+	public void setIngredientsText(String text) {
+		this.ingredientsText.setText(text);
+	}
+	
+	public String getRecipeName() {
+		return this.recipeName.getText();
+	}
+	
+	public String getRecipeIngredients() {
+		return this.ingredientsText.getText();
+	}
+	
+	public String getRecipeDirections() {
+		return this.directionsText.getText();
+	}
+	
 	private JButton createBtnClear() {
 		JButton btnClear = new JButton("Clear");
 		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		return btnClear;
+	}
+	
+	public void addClearListener(ActionListener listener) {
+		this.btnClear.addActionListener(listener);
 	}
 
 	private JButton createBtnUpdate() {
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		return btnUpdate;
+	}
+	
+	public void addUpdateListener(ActionListener listener) {
+		this.btnUpdate.addActionListener(listener);
 	}
 
 	private JPanel createDirectionsPanel() {
@@ -74,7 +119,8 @@ public class EditRecipeView extends JPanel {
 		directionsPanel.add(lblDirections);
 
 		directionsText = createDirectionsTextArea();
-		directionsPanel.add(directionsText);
+		JScrollPane scrollDir = new JScrollPane(directionsText);
+		directionsPanel.add(scrollDir);
 
 		return directionsPanel;
 	}
@@ -104,15 +150,16 @@ public class EditRecipeView extends JPanel {
 		ingredientsPanel.add(lblIngredients);
 
 		ingredientsText = createIngredientsTextArea();
-		ingredientsPanel.add(ingredientsText);
+		JScrollPane scrollIng = new JScrollPane(ingredientsText);
+		ingredientsPanel.add(scrollIng);
 
 		return ingredientsPanel;
 	}
 
 	private JTextArea createIngredientsTextArea() {
 		JTextArea ingredientsText = new JTextArea();
-		ingredientsText.setColumns(20);
-		ingredientsText.setRows(3);
+		ingredientsText.setColumns(30);
+		ingredientsText.setRows(6);
 		ingredientsText.setLineWrap(true);
 		return ingredientsText;
 	}

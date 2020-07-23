@@ -206,7 +206,7 @@ public class RecipeAppView extends JFrame {
 		addView = new AddRecipeView(this);
 		recipePanel.add(addView, "name_269362323597800");
 
-		editView = new EditRecipeView();
+		editView = new EditRecipeView(this);
 		recipePanel.add(editView, "name_480702289636600");
 
 		return recipePanel;
@@ -230,11 +230,11 @@ public class RecipeAppView extends JFrame {
 		return this.welcomePanel;
 	}
 
-	public JPanel getDisplayView() {
+	public DisplayRecipeView getDisplayView() {
 		return this.displayView;
 	}
 	
-	public JPanel getEditView() {
+	public EditRecipeView getEditView() {
 		return this.editView;
 	}
 
