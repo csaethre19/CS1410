@@ -68,7 +68,7 @@ public class EditRecipeView extends JPanel {
 		JPanel directionsPanel = new JPanel();
 
 		directionsPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		directionsPanel.setBackground(new Color(32, 178, 170));
+		directionsPanel.setBackground(new Color(255, 127, 80));
 		
 		JLabel lblDirections = createLblDirections();
 		directionsPanel.add(lblDirections);
@@ -98,7 +98,7 @@ public class EditRecipeView extends JPanel {
 		JPanel ingredientsPanel = new JPanel();
 
 		ingredientsPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		ingredientsPanel.setBackground(new Color(32, 178, 170));
+		ingredientsPanel.setBackground(new Color(255, 127, 80));
 		
 		JLabel lblIngredients = createLblIngredients();
 		ingredientsPanel.add(lblIngredients);
@@ -128,7 +128,7 @@ public class EditRecipeView extends JPanel {
 		JPanel namePanel = new JPanel();
 
 		namePanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		namePanel.setBackground(new Color(32, 178, 170));
+		namePanel.setBackground(new Color(255, 127, 80));
 		
 		JLabel lblRecipeName = createLblRecipeName();
 		namePanel.add(lblRecipeName);

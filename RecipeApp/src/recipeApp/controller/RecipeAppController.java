@@ -2,8 +2,6 @@ package recipeApp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-
 import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
 import recipeApp.view.RecipeAppView;
@@ -23,6 +21,7 @@ public class RecipeAppController {
 		view.addBtnViewListener(new BtnViewListener());
 		view.addBtnHomeListener(new BtnHomeListener());
 		view.addBtnAddRecipeListener(new BtnAddListener());
+		view.addBtnEditRecipeListener(new BtnEditListener());
 	}
 
 	class BtnViewListener implements ActionListener {
@@ -39,8 +38,7 @@ public class RecipeAppController {
 				view.getRecipeDisplay().setLblRecipeName(name);
 				view.getRecipeDisplay().setLblIngredients(ing);
 				view.getRecipeDisplay().setLblDirections(dir);
-			}
-			else {
+			} else {
 				view.getRecipeDisplay().setLblRecipeName("No recipes :(");
 				view.getRecipeDisplay().setLblIngredients("");
 				view.getRecipeDisplay().setLblDirections("");
@@ -54,7 +52,14 @@ public class RecipeAppController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			if (view.getWelcomePanel().isVisible()) {
+				view.getWelcomePanel().setVisible(false);
+			} else if (view.getDisplayView().isVisible()) {
+				view.getDisplayView().setVisible(false);
+			} else if (view.getAddRecipeView().isVisible()) {
+				view.getAddRecipeView().setVisible(false);
+			}
+			view.getEditView().setVisible(true);
 
 		}
 
@@ -64,7 +69,6 @@ public class RecipeAppController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 
 		}
 
@@ -78,6 +82,8 @@ public class RecipeAppController {
 				view.getWelcomePanel().setVisible(false);
 			} else if (view.getDisplayView().isVisible()) {
 				view.getDisplayView().setVisible(false);
+			} else {
+				view.getEditView().setVisible(false);
 			}
 			view.getAddRecipeView().setVisible(true);
 
@@ -89,8 +95,14 @@ public class RecipeAppController {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			if (view.getAddRecipeView().isVisible()) {
+				view.getAddRecipeView().setVisible(false);
+			} else if (view.getDisplayView().isVisible()) {
+				view.getDisplayView().setVisible(false);
+			} else {
+				view.getEditView().setVisible(false);
+			}
 			view.getWelcomePanel().setVisible(true);
-			view.getDisplayView().setVisible(false);
 		}
 
 	}

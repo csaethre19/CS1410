@@ -134,6 +134,10 @@ public class RecipeAppView extends JFrame {
 		btnEditRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
 		return btnEditRecipe;
 	}
+	
+	public void addBtnEditRecipeListener(ActionListener listener) {
+		btnEditRecipe.addActionListener(listener);
+	}
 
 	private JButton createBtnViewRecipe() {
 		JButton btnViewRecipe = new JButton("View");
@@ -228,6 +232,10 @@ public class RecipeAppView extends JFrame {
 
 	public JPanel getDisplayView() {
 		return this.displayView;
+	}
+	
+	public JPanel getEditView() {
+		return this.editView;
 	}
 
 	public JPanel getAddRecipeView() {
