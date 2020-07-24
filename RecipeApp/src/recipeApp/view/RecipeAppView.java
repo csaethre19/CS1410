@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -128,6 +129,10 @@ public class RecipeAppView extends JFrame {
 		btnDeleteRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
 		return btnDeleteRecipe;
 	}
+	
+	public void addBtnDeleteRecipeListener(ActionListener listener) {
+		btnDeleteRecipe.addActionListener(listener);
+	}
 
 	private JButton createBtnEditRecipe() {
 		JButton btnEditRecipe = new JButton("Edit");
@@ -240,6 +245,10 @@ public class RecipeAppView extends JFrame {
 
 	public JPanel getAddRecipeView() {
 		return this.addView;
+	}
+	
+	public void displayAlertMessage(String text) {
+		JOptionPane.showMessageDialog(this, text);
 	}
 
 	private JLabel createLblDisplayImage() {

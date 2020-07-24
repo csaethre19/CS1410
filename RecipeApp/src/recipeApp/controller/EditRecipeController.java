@@ -2,6 +2,7 @@ package recipeApp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
@@ -32,9 +33,13 @@ public class EditRecipeController {
 			rec.setRecipeName(name);
 			rec.setRecipeIngredients(ing);
 			rec.setRecipeDirections(dir);
+			List<Recipe> recipes = model.getRecipesList();
+			mainView.getRecipeDropdown().removeAllItems();
+			mainView.setRecipeDropdown(recipes);
 			view.setRecipeName("");
 			view.setDirectionsText("");
 			view.setIngredientsText("");
+			mainView.displayAlertMessage("Recipe updated");
 		}
 
 	}

@@ -33,6 +33,10 @@ public class RecipeAppModel {
 		recipes.add(recipe);
 	}
 	
+	public void removeRecipe(int index) {
+		recipes.remove(index);
+	}
+	
 	public String addNewLine(String text) {
 		String[] temp = text.split(" ");
 		String result = "<html>";

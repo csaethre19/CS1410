@@ -37,6 +37,7 @@ public class AddRecipeController {
 			List<Recipe> recipes = model.getRecipesList();
 			mainView.getRecipeDropdown().removeAllItems();
 			mainView.setRecipeDropdown(recipes);
+			mainView.displayAlertMessage("Your recipe has been added");
 		}
 		
 	}
