@@ -15,7 +15,7 @@ public class RecipeAppModel {
 	}
 	
 	public List<Recipe> getRecipesList() {
-		return this.recipes;
+		return RecipeAppModel.recipes;
 	}
 	
 	public Recipe getRecipe(int index) {

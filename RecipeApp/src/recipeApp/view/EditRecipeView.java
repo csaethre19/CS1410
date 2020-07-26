@@ -26,6 +26,7 @@ public class EditRecipeView extends JPanel {
 	private JButton btnClear;
 	private JTextArea directionsText;
 	private JTextArea ingredientsText;
+	@SuppressWarnings("unused")
 	private RecipeAppView mainView;
 
 	/**
@@ -50,6 +51,7 @@ public class EditRecipeView extends JPanel {
 		add(updatePanel);
 		
 		RecipeAppModel model = new RecipeAppModel();
+		@SuppressWarnings("unused")
 		EditRecipeController controller = new EditRecipeController(this, model, mainView);
 	}
 
@@ -127,8 +129,8 @@ public class EditRecipeView extends JPanel {
 
 	private JTextArea createDirectionsTextArea() {
 		JTextArea directionsText = new JTextArea();
-		directionsText.setColumns(20);
-		directionsText.setRows(3);
+		directionsText.setColumns(40);
+		directionsText.setRows(6);
 		directionsText.setLineWrap(true);
 		return directionsText;
 	}
@@ -158,7 +160,7 @@ public class EditRecipeView extends JPanel {
 
 	private JTextArea createIngredientsTextArea() {
 		JTextArea ingredientsText = new JTextArea();
-		ingredientsText.setColumns(30);
+		ingredientsText.setColumns(40);
 		ingredientsText.setRows(6);
 		ingredientsText.setLineWrap(true);
 		return ingredientsText;

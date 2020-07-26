@@ -5,12 +5,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.EmptyBorder;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 
 /**

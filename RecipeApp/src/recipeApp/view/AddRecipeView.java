@@ -139,8 +139,8 @@ public class AddRecipeView extends JPanel {
 
 	private void createDirectionsTextArea() {
 		directionsText = new JTextArea();
-		directionsText.setRows(3);
-		directionsText.setColumns(20);
+		directionsText.setRows(6);
+		directionsText.setColumns(40);
 		directionsText.setLineWrap(true);
 	}
 	
@@ -157,8 +157,8 @@ public class AddRecipeView extends JPanel {
 
 	private void createIngredientsTextArea() {
 		ingredientsText = new JTextArea();
-		ingredientsText.setColumns(20);
-		ingredientsText.setRows(3);
+		ingredientsText.setColumns(40);
+		ingredientsText.setRows(6);
 		ingredientsText.setLineWrap(true);
 	}
 	
