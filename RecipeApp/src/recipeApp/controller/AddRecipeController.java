@@ -8,7 +8,13 @@ import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
 import recipeApp.view.AddRecipeView;
 import recipeApp.view.RecipeAppView;
-
+/**
+ * Communicates with <code>AddRecipeView</code> and <code>RecipeAppModel</code> 
+ * to create new recipes via user inputs.
+ * 
+ * @author Charlotte Saethre
+ *
+ */
 public class AddRecipeController {
 
 	private AddRecipeView view;
@@ -25,6 +31,9 @@ public class AddRecipeController {
 	
 	class AddRecipeListener implements ActionListener {
 
+		/**
+		 * Passes user inputs to <code>RecipeAppModel</code> to create new recipe.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String recipeName = view.getRecipeName();
@@ -43,6 +52,10 @@ public class AddRecipeController {
 	}
 	
 	class ClearListener implements ActionListener {
+		
+		/**
+		 * Clears out add recipe form.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			view.setLblRecipeName("");

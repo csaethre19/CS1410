@@ -18,7 +18,12 @@ import recipeApp.model.RecipeAppModel;
 
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-
+/**
+ * Displays view that allows user to edit selected recipe from combo-box.
+ * 
+ * @author Charlotte Saethre
+ *
+ */
 @SuppressWarnings("serial")
 public class EditRecipeView extends JPanel {
 	private JTextField recipeName;
@@ -67,26 +72,56 @@ public class EditRecipeView extends JPanel {
 		return updatePanel;
 	}
 
+	/**
+	 * Sets recipe name.
+	 * 
+	 * @param name name of recipe
+	 */
 	public void setRecipeName(String name) {
 		this.recipeName.setText(name);
 	}
 	
+	/**
+	 * Sets recipe directions.
+	 * 
+	 * @param text recipe directions
+	 */
 	public void setDirectionsText(String text) {
 		this.directionsText.setText(text);
 	}
 	
+	/**
+	 * Sets recipe ingredients.
+	 * 
+	 * @param text recipe ingredients
+	 */
 	public void setIngredientsText(String text) {
 		this.ingredientsText.setText(text);
 	}
 	
+	/**
+	 * Returns name of recipe.
+	 * 
+	 * @return recipe name
+	 */
 	public String getRecipeName() {
 		return this.recipeName.getText();
 	}
 	
+	/**
+	 * Returns ingredients of recipe.
+	 * 
+	 * @return recipe ingredients
+	 */
 	public String getRecipeIngredients() {
 		return this.ingredientsText.getText();
 	}
 	
+	/**
+	 * Returns directions of recipe.
+	 * 
+	 * @return recipe directions
+	 */
 	public String getRecipeDirections() {
 		return this.directionsText.getText();
 	}
@@ -97,6 +132,11 @@ public class EditRecipeView extends JPanel {
 		return btnClear;
 	}
 	
+	/**
+	 * Adds ActionListener to clear button.
+	 * 
+	 * @param listener
+	 */
 	public void addClearListener(ActionListener listener) {
 		this.btnClear.addActionListener(listener);
 	}
@@ -107,6 +147,11 @@ public class EditRecipeView extends JPanel {
 		return btnUpdate;
 	}
 	
+	/**
+	 * Adds ActionListener to update button.
+	 * 
+	 * @param listener
+	 */
 	public void addUpdateListener(ActionListener listener) {
 		this.btnUpdate.addActionListener(listener);
 	}

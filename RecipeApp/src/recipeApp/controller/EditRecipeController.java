@@ -8,7 +8,13 @@ import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
 import recipeApp.view.EditRecipeView;
 import recipeApp.view.RecipeAppView;
-
+/**
+ * Communicates with the <code>EditRecipeView</code> and the <code>RecipeAppModel</code>
+ * to update the user selected recipe from combo-box.
+ * 
+ * @author Charlotte Saethre
+ *
+ */
 public class EditRecipeController {
 	private EditRecipeView view;
 	private RecipeAppModel model;
@@ -24,6 +30,9 @@ public class EditRecipeController {
 
 	class UpdateRecipeListener implements ActionListener {
 
+		/**
+		 * Passes updated text for recipe to <code>RecipeAppModel</code> to modify recipe fields.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String name = view.getRecipeName();
@@ -46,6 +55,9 @@ public class EditRecipeController {
 
 	class ClearListener implements ActionListener {
 
+		/**
+		 * Clears contents of edit recipe form.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			view.setRecipeName("");

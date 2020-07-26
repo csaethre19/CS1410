@@ -9,8 +9,10 @@ import recipeApp.model.RecipeAppModel;
 import recipeApp.view.RecipeAppView;
 
 /**
+ * Communicates with <code>RecipeAppView</code> and <code>RecipeAppModel</code>
+ * to update recipe management panels and pass user inputs to model.
  * 
- * @author charl
+ * @author Charlotte Saethre
  *
  */
 public class RecipeAppController {
@@ -29,6 +31,9 @@ public class RecipeAppController {
 
 	class BtnViewListener implements ActionListener {
 
+		/**
+		 * Changes the view on button click to recipe user selected from combo-box.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (view.getWelcomePanel().isVisible()) {
@@ -38,7 +43,7 @@ public class RecipeAppController {
 			} else {
 				view.getEditView().setVisible(false);
 			}
-			view.getDisplayView().setVisible(true);
+			view.getRecipeDisplay().setVisible(true);
 			if (!model.getRecipesList().isEmpty()) {
 				Recipe rec = model.getRecipe(view.getRecipeSelected());
 				String name = rec.getRecipeName();
@@ -61,12 +66,15 @@ public class RecipeAppController {
 
 	class BtnEditListener implements ActionListener {
 
+		/**
+		 * Changes view to edit view that allows user to edit currently selected recipe.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (view.getWelcomePanel().isVisible()) {
 				view.getWelcomePanel().setVisible(false);
-			} else if (view.getDisplayView().isVisible()) {
-				view.getDisplayView().setVisible(false);
+			} else if (view.getRecipeDisplay().isVisible()) {
+				view.getRecipeDisplay().setVisible(false);
 			} else if (view.getAddRecipeView().isVisible()) {
 				view.getAddRecipeView().setVisible(false);
 			}
@@ -88,6 +96,9 @@ public class RecipeAppController {
 
 	class BtnDeleteListener implements ActionListener {
 
+		/**
+		 * Deletes recipe that user has selected.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (!model.getRecipesList().isEmpty()) {
@@ -105,12 +116,15 @@ public class RecipeAppController {
 
 	class BtnAddListener implements ActionListener {
 
+		/**
+		 * Changes view to add view to allow user to input information for a new recipe.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (view.getWelcomePanel().isVisible()) {
 				view.getWelcomePanel().setVisible(false);
-			} else if (view.getDisplayView().isVisible()) {
-				view.getDisplayView().setVisible(false);
+			} else if (view.getRecipeDisplay().isVisible()) {
+				view.getRecipeDisplay().setVisible(false);
 			} else {
 				view.getEditView().setVisible(false);
 			}
@@ -122,12 +136,15 @@ public class RecipeAppController {
 
 	class BtnHomeListener implements ActionListener {
 
+		/**
+		 * Changes view to home screen.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (view.getAddRecipeView().isVisible()) {
 				view.getAddRecipeView().setVisible(false);
-			} else if (view.getDisplayView().isVisible()) {
-				view.getDisplayView().setVisible(false);
+			} else if (view.getRecipeDisplay().isVisible()) {
+				view.getRecipeDisplay().setVisible(false);
 			} else {
 				view.getEditView().setVisible(false);
 			}

@@ -11,8 +11,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 
 /**
+ * Displays users selected recipe from combo-box.
  * 
- * @author charl
+ * @author Charlotte Saethre
  *
  */
 @SuppressWarnings("serial")
@@ -66,14 +67,29 @@ public class DisplayRecipeView extends JPanel {
 		return lblIngredients_Tag;
 	}
 
+	/**
+	 * Sets recipe name label.
+	 * 
+	 * @param name recipe name
+	 */
 	public void setLblRecipeName(String name) {
 		this.lblRecipeName.setText("Recipe: " + name);
 	}
 
+	/**
+	 * Sets recipe directions label.
+	 * 
+	 * @param directions recipe directions
+	 */
 	public void setLblDirections(String directions) {
 		this.lblDirections.setText(directions);
 	}
 
+	/**
+	 * Sets recipe ingredients label.
+	 * 
+	 * @param ingredients recipe ingredients
+	 */
 	public void setLblIngredients(String ingredients) {
 		this.lblIngredients.setText(ingredients);
 	}

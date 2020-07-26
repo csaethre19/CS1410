@@ -25,8 +25,9 @@ import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
 
 /**
+ * Recipe management application that allows user to add, view, edit, and delete recipes.
  * 
- * @author charl
+ * @author Charlotte Saethre
  *
  */
 @SuppressWarnings("serial")
@@ -130,6 +131,11 @@ public class RecipeAppView extends JFrame {
 		return btnDeleteRecipe;
 	}
 	
+	/**
+	 * Adds ActionListener to delete button.
+	 * 
+	 * @param listener
+	 */
 	public void addBtnDeleteRecipeListener(ActionListener listener) {
 		btnDeleteRecipe.addActionListener(listener);
 	}
@@ -140,6 +146,11 @@ public class RecipeAppView extends JFrame {
 		return btnEditRecipe;
 	}
 	
+	/**
+	 * Adds ActionListener to edit button.
+	 * 
+	 * @param listener
+	 */
 	public void addBtnEditRecipeListener(ActionListener listener) {
 		btnEditRecipe.addActionListener(listener);
 	}
@@ -151,6 +162,7 @@ public class RecipeAppView extends JFrame {
 	}
 
 	/**
+	 * Adds ActionListener to view recipe button.
 	 * 
 	 * @param listener
 	 */
@@ -159,6 +171,7 @@ public class RecipeAppView extends JFrame {
 	}
 
 	/**
+	 * Adds ActionListener to home button.
 	 * 
 	 * @param listener
 	 */
@@ -177,16 +190,31 @@ public class RecipeAppView extends JFrame {
 		return recipeDropdown;
 	}
 
+	/**
+	 * Returns combo-box of recipes.
+	 * 
+	 * @return recipeDropdown
+	 */
 	public JComboBox<String> getRecipeDropdown() {
 		return recipeDropdown;
 	}
 
+	/**
+	 * Populates combo-box with user recipes.
+	 * 
+	 * @param recipes
+	 */
 	public void setRecipeDropdown(List<Recipe> recipes) {
 		for (int i = 0; i < recipes.size(); i++) {
 			recipeDropdown.addItem(recipes.get(i).getRecipeName());
 		}
 	}
 
+	/**
+	 * Returns selected recipe from combo-box
+	 * 
+	 * @return recipeDropdown item
+	 */
 	public int getRecipeSelected() {
 		return recipeDropdown.getSelectedIndex();
 	}
@@ -217,6 +245,11 @@ public class RecipeAppView extends JFrame {
 		return recipePanel;
 	}
 
+	/**
+	 * Returns display view of recipe.
+	 * 
+	 * @return displayView
+	 */
 	public DisplayRecipeView getRecipeDisplay() {
 		return this.displayView;
 	}
@@ -231,22 +264,38 @@ public class RecipeAppView extends JFrame {
 		return welcomePanel;
 	}
 
+	/**
+	 * Returns welcome message display.
+	 * 
+	 * @return welcomePanel
+	 */
 	public JPanel getWelcomePanel() {
 		return this.welcomePanel;
 	}
-
-	public DisplayRecipeView getDisplayView() {
-		return this.displayView;
-	}
 	
+	/**
+	 * Returns edit view for selected recipe.
+	 * 
+	 * @return editView
+	 */
 	public EditRecipeView getEditView() {
 		return this.editView;
 	}
 
+	/**
+	 * Returns add view.
+	 * 
+	 * @return addView
+	 */
 	public JPanel getAddRecipeView() {
 		return this.addView;
 	}
 	
+	/**
+	 * Displays an alert message to user.
+	 * 
+	 * @param text
+	 */
 	public void displayAlertMessage(String text) {
 		JOptionPane.showMessageDialog(this, text);
 	}
@@ -261,6 +310,11 @@ public class RecipeAppView extends JFrame {
 		return lblDisplayImage;
 	}
 
+	/**
+	 * Adds ActionListener to add recipe button.
+	 * 
+	 * @param listener
+	 */
 	public void addBtnAddRecipeListener(ActionListener listener) {
 		btnAddRecipe.addActionListener(listener);
 	}

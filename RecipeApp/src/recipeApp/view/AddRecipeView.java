@@ -19,7 +19,12 @@ import recipeApp.model.RecipeAppModel;
 
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
-
+/**
+ * Displays view that allows a user to add a recipe.
+ * 
+ * @author Charlotte Saethre
+ *
+ */
 @SuppressWarnings("serial")
 public class AddRecipeView extends JPanel {
 	private JTextArea directionsText;
@@ -91,6 +96,7 @@ public class AddRecipeView extends JPanel {
 	}
 	
 	/**
+	 * Adds ActionListener to clear button.
 	 * 
 	 * @param listener
 	 */
@@ -130,6 +136,7 @@ public class AddRecipeView extends JPanel {
 	}
 
 	/**
+	 * Adds ActionListener to submit button.
 	 * 
 	 * @param listener
 	 */
@@ -144,6 +151,11 @@ public class AddRecipeView extends JPanel {
 		directionsText.setLineWrap(true);
 	}
 	
+	/**
+	 * Sets directions text.
+	 * 
+	 * @param text
+	 */
 	public void setDirections(String text) {
 		directionsText.setText(text);
 	}
@@ -162,6 +174,11 @@ public class AddRecipeView extends JPanel {
 		ingredientsText.setLineWrap(true);
 	}
 	
+	/**
+	 * Sets ingredients text. 
+	 * 
+	 * @param text
+	 */
 	public void setIngredients(String text) {
 		ingredientsText.setText(text);
 	}
@@ -182,18 +199,37 @@ public class AddRecipeView extends JPanel {
 		return lblRecipeName;
 	}
 	
+	/**
+	 * Sets recipe name label.
+	 * 
+	 * @param text
+	 */
 	public void setLblRecipeName(String text) {
 		recipeName.setText(text);
 	}
 
+	/**
+	 * Returns user input for recipe name.
+	 * 
+	 * @return name of recipe
+	 */
 	public String getRecipeName() {
 		return this.recipeName.getText();
 	}
 
+	/**
+	 * Returns user input for recipe directions.
+	 * 
+	 * @return
+	 */
 	public String getRecipeDirections() {
 		return this.directionsText.getText();
 	}
 
+	/**
+	 * Returns user input for recipe ingredients.
+	 * @return
+	 */
 	public String getRecipeIngredients() {
 		return this.ingredientsText.getText();
 	}
