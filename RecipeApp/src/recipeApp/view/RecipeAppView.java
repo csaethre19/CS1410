@@ -41,7 +41,7 @@ public class RecipeAppView extends JFrame {
 	private JButton btnDeleteRecipe;
 	private JButton btnAddRecipe;
 	private JPanel welcomePanel;
-	private RecipeAppModel model = new RecipeAppModel();
+	private RecipeAppModel model;
 	private JButton btnHome;
 	private AddRecipeView addView;
 	private EditRecipeView editView;
@@ -92,7 +92,7 @@ public class RecipeAppView extends JFrame {
 		JLabel lblRecipeDropdown = createLblRecipeDropdown();
 		menuPanel.add(lblRecipeDropdown);
 
-		recipeDropdown = createRecipeDropdown();
+		createRecipeDropdown();
 		menuPanel.add(recipeDropdown);
 
 		btnViewRecipe = createBtnViewRecipe();
@@ -179,15 +179,15 @@ public class RecipeAppView extends JFrame {
 		btnHome.addActionListener(listener);
 	}
 
-	private JComboBox<String> createRecipeDropdown() {
-		JComboBox<String> recipeDropdown = new JComboBox<String>();
+	private void createRecipeDropdown() {
+		this.recipeDropdown = new JComboBox<String>();
 		recipeDropdown.setBorder(new EmptyBorder(4, 8, 4, 8));
 		recipeDropdown.setFont(new Font("Calibri", Font.PLAIN, 16));
 		List<Recipe> recipes = model.getRecipesList();
-		if (!recipes.equals(null)) {
+		if (recipes != null) {
 			setRecipeDropdown(recipes);
 		}
-		return recipeDropdown;
+		//return recipeDropdown;
 	}
 
 	/**
@@ -206,7 +206,8 @@ public class RecipeAppView extends JFrame {
 	 */
 	public void setRecipeDropdown(List<Recipe> recipes) {
 		for (int i = 0; i < recipes.size(); i++) {
-			recipeDropdown.addItem(recipes.get(i).getRecipeName());
+			String r = recipes.get(i).getRecipeName();
+			recipeDropdown.addItem(r);
 		}
 	}
 
@@ -236,10 +237,12 @@ public class RecipeAppView extends JFrame {
 		displayView = new DisplayRecipeView();
 		recipePanel.add(displayView, "name_431476528960000");
 
-		addView = new AddRecipeView(this);
+		this.model = new RecipeAppModel();
+		
+		addView = new AddRecipeView(this, model);
 		recipePanel.add(addView, "name_269362323597800");
 
-		editView = new EditRecipeView(this);
+		editView = new EditRecipeView(this, model);
 		recipePanel.add(editView, "name_480702289636600");
 
 		return recipePanel;

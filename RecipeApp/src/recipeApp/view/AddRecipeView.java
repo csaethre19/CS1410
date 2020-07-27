@@ -34,14 +34,16 @@ public class AddRecipeView extends JPanel {
 	private JButton btnClear;
 	@SuppressWarnings("unused")
 	private RecipeAppView mainView;
+	private RecipeAppModel model;
 
 	/**
 	 * Create the panel.
 	 */
-	public AddRecipeView(RecipeAppView mainView) {
+	public AddRecipeView(RecipeAppView mainView, RecipeAppModel model) {
 		setLayout(new GridLayout(4, 1, 0, 0));
 
 		this.mainView = mainView;
+		this.model = model;
 		
 		JPanel namePanel = createNamePanel();
 		add(namePanel);
@@ -83,7 +85,6 @@ public class AddRecipeView extends JPanel {
 		btnClear = createClearBtn();
 		submitPanel.add(btnClear);
 
-		RecipeAppModel model = new RecipeAppModel();
 		@SuppressWarnings("unused")
 		AddRecipeController controller = new AddRecipeController(this, model, mainView);
 

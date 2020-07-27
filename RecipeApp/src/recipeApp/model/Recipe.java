@@ -1,11 +1,16 @@
 package recipeApp.model;
+
+import java.io.Serializable;
+
 /**
  * Describes a recipe that a user can create including a name, ingredients, and directions.
  * 
  * @author Charlotte Saethre
  *
  */
-public class Recipe {
+public class Recipe implements Serializable {
+	
+		private static final long serialVersionUID = 1L;
 		private String recipeName;
 		private String recipeIngredients;
 		private String recipeDirections;

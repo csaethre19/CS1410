@@ -1,5 +1,11 @@
 package recipeApp.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -10,6 +16,22 @@ import java.util.List;
  */
 public class RecipeAppModel {
 	private static List<Recipe> recipes = new ArrayList<>();
+	
+	public RecipeAppModel() {
+		File serFile = new File("C:\\Users\\Public\\recipe.ser");
+		if (serFile.exists()) {
+			recipes = deserialize("recipe.ser");
+		}
+		else {
+			try {
+				if (serFile.createNewFile()) {
+					System.out.println("file created successfully");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	/**
 	 * Returns the list of recipes to view.
@@ -40,6 +62,22 @@ public class RecipeAppModel {
 	public void createRecipe(String recipeName, String recipeIngredients, String recipeDirections) {
 		Recipe recipe = new Recipe(recipeName, recipeIngredients, recipeDirections);
 		recipes.add(recipe);
+		serialize(recipes, "recipe.ser");
+	}
+	
+	/**
+	 * Modifies fields of recipe specified by index passed.
+	 * 
+	 * @param name name of recipe
+	 * @param ing ingredients
+	 * @param dir directions
+	 * @param index index of recipe
+	 */
+	public void editRecipe(String name, String ing, String dir, int index) {
+		recipes.get(index).setRecipeName(name);
+		recipes.get(index).setRecipeIngredients(ing);
+		recipes.get(index).setRecipeDirections(dir);
+		serialize(recipes, "recipe.ser");
 	}
 	
 	/**
@@ -49,6 +87,7 @@ public class RecipeAppModel {
 	 */
 	public void removeRecipe(int index) {
 		recipes.remove(index);
+		serialize(recipes, "recipe.ser");
 	}
 	
 	/**
@@ -70,6 +109,25 @@ public class RecipeAppModel {
 		}
 		result += "</html>";
 		return result;
+	}
+	
+	private static void serialize(List<Recipe> recipes, String filename) {
+		try (ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Public\\" + filename))) {
+			obj.writeObject(recipes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private static List<Recipe> deserialize(String filename) {
+		List<Recipe> deserialized = null;
+		try (ObjectInputStream obj = new ObjectInputStream(new FileInputStream("C:\\Users\\Public\\" + filename))) {
+			deserialized = (List<Recipe>) obj.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return deserialized;
 	}
 	
 }

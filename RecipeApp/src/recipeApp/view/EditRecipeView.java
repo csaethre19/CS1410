@@ -33,13 +33,15 @@ public class EditRecipeView extends JPanel {
 	private JTextArea ingredientsText;
 	@SuppressWarnings("unused")
 	private RecipeAppView mainView;
+	private RecipeAppModel model;
 
 	/**
 	 * Create the panel.
 	 */
-	public EditRecipeView(RecipeAppView mainView) {
+	public EditRecipeView(RecipeAppView mainView, RecipeAppModel model) {
 		
 		this.mainView = mainView;
+		this.model = model;
 		
 		setLayout(new GridLayout(4, 1, 0, 0));
 
@@ -55,7 +57,6 @@ public class EditRecipeView extends JPanel {
 		JPanel updatePanel = createUpdatePanel();
 		add(updatePanel);
 		
-		RecipeAppModel model = new RecipeAppModel();
 		@SuppressWarnings("unused")
 		EditRecipeController controller = new EditRecipeController(this, model, mainView);
 	}

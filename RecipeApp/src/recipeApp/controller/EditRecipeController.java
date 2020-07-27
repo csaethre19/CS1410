@@ -38,10 +38,8 @@ public class EditRecipeController {
 			String name = view.getRecipeName();
 			String ing = view.getRecipeIngredients();
 			String dir = view.getRecipeDirections();
-			Recipe rec = model.getRecipe(mainView.getRecipeSelected());
-			rec.setRecipeName(name);
-			rec.setRecipeIngredients(ing);
-			rec.setRecipeDirections(dir);
+			int index = mainView.getRecipeSelected();
+			model.editRecipe(name, ing, dir, index);
 			List<Recipe> recipes = model.getRecipesList();
 			mainView.getRecipeDropdown().removeAllItems();
 			mainView.setRecipeDropdown(recipes);
