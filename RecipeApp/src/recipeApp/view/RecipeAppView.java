@@ -115,19 +115,19 @@ public class RecipeAppView extends JFrame {
 
 	private JButton createBtnHome() {
 		JButton btnHome = new JButton("Home");
-		btnHome.setFont(new Font("Calibri", Font.PLAIN, 16));
+		btnHome.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return btnHome;
 	}
 
 	private JButton createBtnAddRecipe() {
 		JButton btnAddRecipe = new JButton("Add");
-		btnAddRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
+		btnAddRecipe.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return btnAddRecipe;
 	}
 
 	private JButton createBtnDeleteRecipe() {
 		JButton btnDeleteRecipe = new JButton("Delete");
-		btnDeleteRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
+		btnDeleteRecipe.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return btnDeleteRecipe;
 	}
 	
@@ -142,7 +142,7 @@ public class RecipeAppView extends JFrame {
 
 	private JButton createBtnEditRecipe() {
 		JButton btnEditRecipe = new JButton("Edit");
-		btnEditRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
+		btnEditRecipe.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return btnEditRecipe;
 	}
 	
@@ -157,7 +157,7 @@ public class RecipeAppView extends JFrame {
 
 	private JButton createBtnViewRecipe() {
 		JButton btnViewRecipe = new JButton("View");
-		btnViewRecipe.setFont(new Font("Calibri", Font.PLAIN, 16));
+		btnViewRecipe.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return btnViewRecipe;
 	}
 
@@ -182,7 +182,7 @@ public class RecipeAppView extends JFrame {
 	private void createRecipeDropdown() {
 		this.recipeDropdown = new JComboBox<String>();
 		recipeDropdown.setBorder(new EmptyBorder(4, 8, 4, 8));
-		recipeDropdown.setFont(new Font("Calibri", Font.PLAIN, 16));
+		recipeDropdown.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		List<Recipe> recipes = model.getRecipesList();
 		if (recipes != null) {
 			setRecipeDropdown(recipes);
@@ -223,7 +223,7 @@ public class RecipeAppView extends JFrame {
 	private JLabel createLblRecipeDropdown() {
 		JLabel lblRecipeDropdown = new JLabel("Choose a recipe ...");
 		lblRecipeDropdown.setBorder(new EmptyBorder(8, 8, 8, 8));
-		lblRecipeDropdown.setFont(new Font("Calibri", Font.BOLD, 16));
+		lblRecipeDropdown.setFont(new Font("Book Antiqua", Font.BOLD, 16));
 		return lblRecipeDropdown;
 	}
 

@@ -27,12 +27,14 @@ public class DisplayRecipeView extends JPanel {
 	 * Create the panel.
 	 */
 	public DisplayRecipeView() {
-		setBackground(new Color(176, 224, 230));
+		setBackground(Color.WHITE);
 		setLayout(new GridLayout(0, 2, 0, 0));
 		lblRecipeName = createLblRecipeName();
 		add(lblRecipeName);
 
 		JLabel emptyBlock = new JLabel("What you need and what to do!");
+		emptyBlock.setHorizontalAlignment(SwingConstants.CENTER);
+		emptyBlock.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		add(emptyBlock);
 
 		JLabel lblDirections_Tag = createLblDirectionsTag();
@@ -55,7 +57,7 @@ public class DisplayRecipeView extends JPanel {
 		JLabel lblDirections_Tag = new JLabel("Directions:");
 		lblDirections_Tag.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDirections_Tag.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		lblDirections_Tag.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblDirections_Tag.setFont(new Font("Book Antiqua", Font.PLAIN, 18));
 		return lblDirections_Tag;
 	}
 
@@ -63,7 +65,7 @@ public class DisplayRecipeView extends JPanel {
 		JLabel lblIngredients_Tag = new JLabel("Ingredients:");
 		lblIngredients_Tag.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIngredients_Tag.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		lblIngredients_Tag.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblIngredients_Tag.setFont(new Font("Book Antiqua", Font.PLAIN, 18));
 		return lblIngredients_Tag;
 	}
 
@@ -73,7 +75,7 @@ public class DisplayRecipeView extends JPanel {
 	 * @param name recipe name
 	 */
 	public void setLblRecipeName(String name) {
-		this.lblRecipeName.setText("Recipe: " + name);
+		this.lblRecipeName.setText(name);
 	}
 
 	/**
@@ -97,21 +99,21 @@ public class DisplayRecipeView extends JPanel {
 	private JLabel createIngredientsSection() {
 		JLabel lblIngredients = new JLabel("Ingredients: ");
 		lblIngredients.setBorder(new EmptyBorder(0, 20, 0, 20));
-		lblIngredients.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblIngredients.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return lblIngredients;
 	}
 
 	private JLabel createDirectionsSection() {
 		JLabel lblDirections = new JLabel("Directions: ");
 		lblDirections.setBorder(new EmptyBorder(0, 20, 0, 20));
-		lblDirections.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDirections.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return lblDirections;
 	}
 
 	private JLabel createLblRecipeName() {
 		JLabel lblRecipeName = new JLabel("recipe name");
 		lblRecipeName.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		lblRecipeName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblRecipeName.setFont(new Font("Book Antiqua", Font.PLAIN, 18));
 		lblRecipeName.setHorizontalAlignment(SwingConstants.CENTER);
 		return lblRecipeName;
 	}

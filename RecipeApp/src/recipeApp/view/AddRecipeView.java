@@ -19,6 +19,7 @@ import recipeApp.model.RecipeAppModel;
 
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.BevelBorder;
 /**
  * Displays view that allows a user to add a recipe.
  * 
@@ -34,6 +35,7 @@ public class AddRecipeView extends JPanel {
 	private JButton btnClear;
 	@SuppressWarnings("unused")
 	private RecipeAppView mainView;
+	@SuppressWarnings("unused")
 	private RecipeAppModel model;
 
 	/**
@@ -92,7 +94,7 @@ public class AddRecipeView extends JPanel {
 
 	private JButton createClearBtn() {
 		JButton btnClear = new JButton("Clear");
-		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnClear.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return btnClear;
 	}
 	
@@ -108,32 +110,32 @@ public class AddRecipeView extends JPanel {
 	private JPanel createNamePanel() {
 		JPanel namePanel = new JPanel();
 		namePanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		namePanel.setBackground(new Color(32, 178, 170));
+		namePanel.setBackground(new Color(245, 222, 179));
 		return namePanel;
 	}
 
 	private void createRecipeNameField() {
 		recipeName = new JTextField();
-		recipeName.setBorder(new EmptyBorder(10, 0, 10, 0));
+		recipeName.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 	}
 
 	private JPanel createIngredientsPanel() {
 		JPanel ingredientsPanel = new JPanel();
 		ingredientsPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		ingredientsPanel.setBackground(new Color(32, 178, 170));
+		ingredientsPanel.setBackground(new Color(245, 222, 179));
 		return ingredientsPanel;
 	}
 
 	private JPanel createDirectionsPanel() {
 		JPanel directionsPanel = new JPanel();
 		directionsPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		directionsPanel.setBackground(new Color(32, 178, 170));
+		directionsPanel.setBackground(new Color(245, 222, 179));
 		return directionsPanel;
 	}
 
 	private void createSubmitBtn() {
 		btnSubmit = new JButton("Submit");
-		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnSubmit.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 	}
 
 	/**
@@ -164,7 +166,7 @@ public class AddRecipeView extends JPanel {
 	private JLabel createLblDirections() {
 		JLabel lblDirections = new JLabel("Directions:");
 		lblDirections.setBorder(new EmptyBorder(10, 20, 10, 20));
-		lblDirections.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDirections.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return lblDirections;
 	}
 
@@ -188,7 +190,7 @@ public class AddRecipeView extends JPanel {
 		JLabel lblIngredients = new JLabel("Ingredients:");
 		lblIngredients.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIngredients.setBorder(new EmptyBorder(10, 20, 10, 20));
-		lblIngredients.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblIngredients.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return lblIngredients;
 	}
 
@@ -196,7 +198,7 @@ public class AddRecipeView extends JPanel {
 		JLabel lblRecipeName = new JLabel("Recipe Name:");
 		lblRecipeName.setHorizontalAlignment(SwingConstants.LEFT);
 		lblRecipeName.setBorder(new EmptyBorder(10, 0, 10, 0));
-		lblRecipeName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblRecipeName.setFont(new Font("Book Antiqua", Font.PLAIN, 16));
 		return lblRecipeName;
 	}
 	
