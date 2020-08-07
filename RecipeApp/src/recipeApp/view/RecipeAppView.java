@@ -207,6 +207,9 @@ public class RecipeAppView extends JFrame {
 	public void setRecipeDropdown(List<Recipe> recipes) {
 		for (int i = 0; i < recipes.size(); i++) {
 			String r = recipes.get(i).getRecipeName();
+			if (r.length() > 20) {
+				r = r.substring(0, 20) + "...";
+			}
 			recipeDropdown.addItem(r);
 		}
 	}
