@@ -108,8 +108,13 @@ public class RecipeAppController {
 			if (n == 0) {
 				if (!model.getRecipesList().isEmpty()) {
 					int index = view.getRecipeSelected();
-					model.removeRecipe(index);
+					String recipeToRemove = view.getRecipeDropdown().getItemAt(index);				
 					List<Recipe> recipes = model.getRecipesList();
+					for (int i = 0; i < recipes.size(); i++) {
+						if (recipes.get(i).getRecipeName() == recipeToRemove) {
+							model.removeRecipe(i);
+						}
+					}
 					view.getRecipeDropdown().removeAllItems();
 					view.setRecipeDropdown(recipes);
 					view.displayAlertMessage("Recipe has been deleted");

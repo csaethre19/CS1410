@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.border.BevelBorder;
@@ -187,7 +189,6 @@ public class RecipeAppView extends JFrame {
 		if (recipes != null) {
 			setRecipeDropdown(recipes);
 		}
-		//return recipeDropdown;
 	}
 
 	/**
@@ -205,13 +206,20 @@ public class RecipeAppView extends JFrame {
 	 * @param recipes
 	 */
 	public void setRecipeDropdown(List<Recipe> recipes) {
-		for (int i = 0; i < recipes.size(); i++) {
-			String r = recipes.get(i).getRecipeName();
-			if (r.length() > 20) {
-				r = r.substring(0, 20) + "...";
-			}
-			recipeDropdown.addItem(r);
+		String[] array = new String[recipes.size()];
+		int j = 0;
+		for (Recipe r : recipes) {
+			array[j] = r.getRecipeName();
+			j++;
 		}
+		Arrays.sort(array);
+		for (int i = 0; i < array.length; i++) {
+			if (array[i].length() > 20) {
+				array[i] = array[i].substring(0, 20) + "...";
+			}
+			recipeDropdown.addItem(array[i]);
+		}
+		
 	}
 
 	/**
