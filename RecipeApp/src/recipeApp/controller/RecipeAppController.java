@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import recipeApp.model.Recipe;
 import recipeApp.model.RecipeAppModel;
 import recipeApp.view.RecipeAppView;
@@ -101,13 +104,16 @@ public class RecipeAppController {
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (!model.getRecipesList().isEmpty()) {
-				int index = view.getRecipeSelected();
-				model.removeRecipe(index);
-				List<Recipe> recipes = model.getRecipesList();
-				view.getRecipeDropdown().removeAllItems();
-				view.setRecipeDropdown(recipes);
-				view.displayAlertMessage("Recipe has been deleted");
+			int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this recipe?");
+			if (n == 0) {
+				if (!model.getRecipesList().isEmpty()) {
+					int index = view.getRecipeSelected();
+					model.removeRecipe(index);
+					List<Recipe> recipes = model.getRecipesList();
+					view.getRecipeDropdown().removeAllItems();
+					view.setRecipeDropdown(recipes);
+					view.displayAlertMessage("Recipe has been deleted");
+				}
 			}
 
 		}
