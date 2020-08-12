@@ -52,7 +52,14 @@ public class RecipeAppController {
 				List<Recipe> recipes = model.getRecipesList();
 				int recipeFound = 0;
 				for (int i = 0; i < recipes.size(); i++) {
-					if (recipes.get(i).getRecipeName() == recipeToView) {
+					String name = "";
+					if (recipes.get(i).getRecipeName().length() > 20) {
+						name = recipes.get(i).getRecipeName().substring(0, 20) + "...";
+					}
+					else {
+						name = recipes.get(i).getRecipeName();
+					}
+					if (name.equals(recipeToView)) {
 						recipeFound = i;
 					}
 				}
@@ -91,13 +98,28 @@ public class RecipeAppController {
 			}
 			view.getEditView().setVisible(true);
 			if (!model.getRecipesList().isEmpty()) {
-				Recipe rec = model.getRecipe(view.getRecipeSelected());
-				String name = rec.getRecipeName();
-				String ing = rec.getRecipeIngredients();
-				String dir = rec.getRecipeDirections();
-				view.getEditView().setRecipeName(name);
-				view.getEditView().setIngredientsText(ing);
-				view.getEditView().setDirectionsText(dir);
+				int index = view.getRecipeSelected();
+				String recipeToEdit = view.getRecipeDropdown().getItemAt(index);
+				List<Recipe> recipes = model.getRecipesList();
+				for (int i = 0; i < recipes.size(); i++) {
+					String name = "";
+					if (recipes.get(i).getRecipeName().length() > 20) {
+						name = recipes.get(i).getRecipeName().substring(0, 20) + "...";
+					}
+					else {
+						name = recipes.get(i).getRecipeName();
+					}
+					if (name.equals(recipeToEdit)) {
+						Recipe rec = model.getRecipe(i);
+						String recipeName = rec.getRecipeName();
+						String ing = rec.getRecipeIngredients();
+						String dir = rec.getRecipeDirections();
+						view.getEditView().setRecipeName(recipeName);
+						view.getEditView().setIngredientsText(ing);
+						view.getEditView().setDirectionsText(dir);
+					}
+				}
+
 			} else {
 				view.getEditView().setRecipeName("no recipes :(");
 			}

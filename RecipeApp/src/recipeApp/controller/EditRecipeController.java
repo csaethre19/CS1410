@@ -46,7 +46,7 @@ public class EditRecipeController {
 			List<Recipe> recipes = model.getRecipesList();
 			for (int i = 0; i < recipes.size(); i++) {
 				if (recipes.get(i).getRecipeName() == recipeToEdit) {
-					model.editRecipe(name, ing, dir, index);
+					model.editRecipe(name, ing, dir, i);
 				}
 			}
 			mainView.getRecipeDropdown().removeAllItems();
