@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import recipeApp.model.Recipe;
@@ -48,7 +47,16 @@ public class RecipeAppController {
 			}
 			view.getRecipeDisplay().setVisible(true);
 			if (!model.getRecipesList().isEmpty()) {
-				Recipe rec = model.getRecipe(view.getRecipeSelected());
+				int index = view.getRecipeSelected();
+				String recipeToView = view.getRecipeDropdown().getItemAt(index);				
+				List<Recipe> recipes = model.getRecipesList();
+				int recipeFound = 0;
+				for (int i = 0; i < recipes.size(); i++) {
+					if (recipes.get(i).getRecipeName() == recipeToView) {
+						recipeFound = i;
+					}
+				}
+				Recipe rec = model.getRecipe(recipeFound);
 				String name = rec.getRecipeName();
 				String ing = rec.getRecipeIngredients();
 				ing = model.addNewLine(ing);
